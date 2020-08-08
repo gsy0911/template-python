@@ -19,7 +19,7 @@ help:
 .PHONY: help
 
 test-python:
-	pytest ./test -vv --cov=./azfs --cov-report=html
+	pytest ./test -vv --cov=./{your_module} --cov-report=html
 
 deploy:
 	twine upload dist/*
@@ -31,4 +31,4 @@ build:
 	python setup.py sdist bdist_wheel
 
 clean:
-	rm -f -r azfs.egg-info/* dist/* -y
+	rm -f -r {your_module}.egg-info/* dist/* -y
