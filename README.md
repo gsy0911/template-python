@@ -9,4 +9,8 @@
   
 * modify `Makefile`
   * set `{your_module}`
+
+* modify `setup.py` 
+  * set `{...}`
+
 * type `$ poetry install`
