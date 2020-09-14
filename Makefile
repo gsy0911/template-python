@@ -1,4 +1,5 @@
 
+.PHONY: help
 help:
 	@echo " == execute python test on some python .venv == "
 	@echo "type 'make test-python' to execute python test with pytest"
@@ -17,19 +18,23 @@ help:
 	@echo "test-python: test with pytest"
 
 
-.PHONY: help
 
+.PHONY: test-python
 test-python:
 	pytest ./test -vv --cov=./{your_module} --cov-report=html
 
+.PHONY: deploy
 deploy:
 	twine upload dist/*
 
+.PHONY: test-deploy
 test-deploy:
 	twine upload -r testpypi dist/*
 
+.PHONY: wheel
 wheel:
 	python setup.py sdist bdist_wheel
 
+.PHONY: clean
 clean:
 	rm -f -r {your_module}.egg-info/* dist/* -y
