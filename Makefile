@@ -31,4 +31,9 @@ format: ## format with black ## make format
 	isort $(MODULE_NAME)
 	isort test
 	black .
+
+.PHONY: lint
+lint: ## lint python (flake8 and mypy) ## make lint
+	pflake8 $(MODULE_NAME)
 	mypy $(MODULE_NAME)
+	bandit --recursive src
